@@ -16,10 +16,13 @@
     "transformIgnorePatterns": [
       "node_modules/(?!lodash-es/*|@angular/common/locales/*)"
     ],
+    "reporters": [
+      "default",
+      "jest-junit"
+    ],
     "moduleNameMapper": {
       "^my-ui-lib/(.*)": "<rootDir>/node_modules/my-ui-lib/$1"
     },
-    "testResultsProcessor": "jest-junit",
     "coverageDirectory": "tmp/coverage",
     "coverageReporters": [
       "json",
