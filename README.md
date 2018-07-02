@@ -79,7 +79,7 @@ https://www.xfive.co/blog/testing-angular-faster-jest/
 
 ### Nrwl Extensions for Angular
 
-A toolkit based on the Angular cli to support the writing of large scale enterprise applications. One key feature is the automated detection of dependend application/libs withtin a project.
+A toolkit based on the Angular cli to support the writing of large scale enterprise applications. One key feature is the automated detection of dependent application/libs within a project.
 
 https://nrwl.io/nx
 
