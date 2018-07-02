@@ -66,7 +66,7 @@ One of the best Editors to work with JavaScript/TypeScript and Angular apps. Has
 
 Opinionated code styling tool. Works for many languages and will help you to no longer discuss about code styling rules in your team.
 
-* [Official Webite](https://prettier.io)
+* [Official Website](https://prettier.io)
 * [Plugin for tslint](https://github.com/alexjoverm/tslint-config-prettier)
 * [Module to do actions on all changed files](https://github.com/okonet/lint-staged)
 * [Simple Setup in combination with ESLint](https://github.com/lipis/prettier-setup/blob/master/README.md)
