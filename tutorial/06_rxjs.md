@@ -1,7 +1,7 @@
 # RxJS
 ## Add edit function
 
-$ src/customers/customer/customer.component.ts
+$ src/app/customers/customer/customer.component.ts
 
 ```javascript
 constructor(private router: Router) { }
@@ -12,7 +12,8 @@ edit() {
 ```
 
 ## Add footer
-$ src/customers/customer/customer.component.html
+
+$ src/app/customers/customer/customer.component.html
 
 ```html
 ...
@@ -26,7 +27,7 @@ $ src/customers/customer/customer.component.html
 
 ## Extend ngOnInit()
 
-$ src/customers/customer-form/customer-form.component.ts
+$ src/app/customers/customer-form/customer-form.component.ts
 
 ```javascript
 ...
@@ -44,7 +45,7 @@ constructor(
     this.route.paramMap
       .pipe(
         filter(params => params.get('id') !== 'new'),
-        switchMap(params =>  									this.customerService.getById(params.get('id')))
+        switchMap(params => this.customerService.getById(params.get('id')))
       )
       .subscribe(customer => {
         this.form.patchValue(customer);
@@ -55,13 +56,11 @@ constructor(
 cancel() {
   this.router.navigate(['customers']);
 }
-
-...
 ```
 
 ## Add getById()
 
-$ src/customers/customer.service.ts
+$ src/app/customers/customer.service.ts
 
 ```javascript
 import { of } from 'rxjs';

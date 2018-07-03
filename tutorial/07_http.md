@@ -1,11 +1,11 @@
 # Http
 ## Add HttpClientModule to imports
 
-$ src/customers/customer.module.ts
+$ src/app/customers/customer.module.ts
 
 ## Add HttpClient
 
-$ src/customers/customer.service.ts
+$ src/app/customers/customer.service.ts
 
 ```javascript
 import { Injectable } from '@angular/core';
@@ -22,8 +22,7 @@ export class CustomerService {
   constructor(private httpClient: HttpClient) { }
 
   getById(id: string) {
-    return this.httpClient
-	 .get<Customer>(`${this.endpoint}/${id}`);
+    return this.httpClient.get<Customer>(`${this.endpoint}/${id}`);
   }
 
   getAll(searchTerm = '') {
@@ -32,30 +31,26 @@ export class CustomerService {
       ? { params: new HttpParams().set('search', searchTerm) }
       : {};
 
-    return this.httpClient
-	 .get<Array<Customer>>(this.endpoint, httpOptions);
+    return this.httpClient.get<Array<Customer>>(this.endpoint, httpOptions);
   }
 
   create(customer: Customer) {
-    return this.httpClient
-	 .post<Customer>(this.endpoint, customer);
+    return this.httpClient.post<Customer>(this.endpoint, customer);
   }
 
   update(customer: Customer) {
-    return this.httpClient
-	 .put<Customer>(this.endpoint, customer);
+    return this.httpClient.put<Customer>(this.endpoint, customer);
   }
 
   delete(id: number) {
-    return this.httpClient
-	 .delete<Customer>(`${this.endpoint}/${id}`);
+    return this.httpClient.delete<Customer>(`${this.endpoint}/${id}`);
   }
 }
 ```
 
 # Update submit logic to use the customer service
 
-$ src/customers/cutomer-form/customer-form.component.ts
+$ src/app/customers/cutomer-form/customer-form.component.ts
 
 ```javascript
 ...
@@ -69,10 +64,11 @@ submit() {
     save$(data)
       .subscribe(_ => {
         this.snackBar.open(
-		`Customer ${data.name} saved successfully.`,
-		'',
-		{ duration: 2000 }
-	   );
+		      `Customer ${data.name} saved successfully.`,
+          '',
+          { duration: 2000 }
+        );
+
         this.cancel();
       });
 }
@@ -80,14 +76,12 @@ submit() {
 
 ## Add search field
 
-$ src/customers/customer-list/customer-list.component.html
+$ src/app/customers/customer-list/customer-list.component.html
 
 ```html
 <div class="customers-search">
   <mat-form-field>
-    <input matInput
-      [formControl]="searchTerm"
-      placeholder="Search..." />
+    <input matInput [formControl]="searchTerm" placeholder="Search..." />
   </mat-form-field>
 
   <button mat-icon-button (click)="addNewCustomer()">
@@ -107,7 +101,7 @@ $ src/customers/customer-list/customer-list.component.html
 
 ## Add rxjs magic
 
-$ src/customers/customer-list/customer-list.component.ts
+$ src/app/customers/customer-list/customer-list.component.ts
 
 ```javascript
 import { Component, OnInit } from '@angular/core';
@@ -158,14 +152,14 @@ export class CustomerListComponent implements OnInit {
 
   deleteCustomer(id: number) {
     this.customerService.delete(id)
-	 .subscribe(_ => this.reload$.next());
+	    .subscribe(_ => this.reload$.next());
   }
 }
 ```
 
 ## Add delete method and Output
 
-$ src/customers/customer/customer.component.ts
+$ src/app/customers/customer/customer.component.ts
 
 ```javascript
 ...
@@ -179,7 +173,7 @@ delete(id: number) {
 
 ## Add delete button in footer
 
-$ src/customers/customer/customer.component.html
+$ src/app/customers/customer/customer.component.html
 
 ```html
 ...

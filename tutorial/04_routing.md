@@ -4,7 +4,7 @@ $ ng generate module home
 
 $ ng generate component home
 
-$ src/app-routing.module.ts
+$ src/app/app-routing.module.ts
 
 ```javascript
 import { NgModule } from '@angular/core';
@@ -24,7 +24,7 @@ export const routes: Routes = [
 export class AppRoutingModule { }
 ```
 
-$ src/customers/customers-routing.module.ts
+$ src/app/customers/customers-routing.module.ts
 
 ```javascript
 import { NgModule } from '@angular/core';
@@ -44,13 +44,14 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class CustomersRoutingModule { }
+```
 
-app.component.html
+$ app.component.html
 
+```html
 <nav>
   <a routerLink="home" routerLinkActive="active">Home</a>
-  <a routerLink="customers"
-	routerLinkActive="active">Customers</a>
+  <a routerLink="customers"	routerLinkActive="active">Customers</a>
 </nav>
 
 <router-outlet></router-outlet>

@@ -4,7 +4,7 @@ $ ng generate module customers
 
 $ ng generate component customers/customer-details
 
-$ src/customers/customer-details/customer-details.component.html
+$ src/app/customers/customer-details/customer-details.component.html
 
 ```html
 <p>
@@ -14,7 +14,7 @@ $ src/customers/customer-details/customer-details.component.html
 
 $ ng generate component customers/customer
 
-$ src/customers/customer/customer.component.ts
+$ src/app/customers/customer/customer.component.ts
 
 ```javascript
 import { Component, OnInit, Input, HostBinding } from '@angular/core';
@@ -39,7 +39,7 @@ export class CustomerComponent {
 }
 ```
 
-$ src/customers/customer/customer.component.html
+$ src/app/customers/customer/customer.component.html
 
 ```html
 <div class="header">
@@ -66,7 +66,7 @@ $ src/customers/customer/customer.component.html
 </div>
 ```
 
-$ src/customers/customers.module.ts
+$ src/app/customers/customers.module.ts
 
 ```javascript
 import {

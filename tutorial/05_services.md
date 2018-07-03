@@ -2,7 +2,7 @@
 
 $ ng generate service customers/customer
 
-$ src/customers/customer.service.ts
+$ src/app/customers/customer.service.ts
 
 ```javascript
 import { Injectable } from '@angular/core';
@@ -30,7 +30,7 @@ export class CustomerService {
 
 $ ng generate component customers/customer-list
 
-$ src/customers/customer-list/customer-list.component.ts
+$ src/app/customers/customer-list/customer-list.component.ts
 
 ```javascript
 import { Component, OnInit } from '@angular/core';
@@ -53,7 +53,7 @@ export class CustomerListComponent implements OnInit {
 }
 ```
 
-$ src/customers/customer-list/customer-list.component.html
+$ src/app/customers/customer-list/customer-list.component.html
 
 ```html
 <div class="customer">
@@ -65,7 +65,7 @@ $ src/customers/customer-list/customer-list.component.html
 </div>
 ```
 
-$ src/customers/customers-routing.module.ts
+$ src/app/customers/customers-routing.module.ts
 
 ```javascript
 ...

@@ -2,7 +2,7 @@
 
 $ ng generate class customers/customer
 
-$ src/customers/customer.model.ts
+$ src/app/customers/customer.ts
 
 ```javascript
 import { FormBuilder, Validators } from '@angular/forms';
@@ -13,24 +13,24 @@ export class Customer {
   numberOfOrders = 0;
 
   firstname?: string;
+  hobbies?: string[];
 
   static toFormGroup(customer = new Customer()) {
     const formBuilder = new FormBuilder();
 
     return formBuilder.group({
       id: formBuilder.control(customer.id),
-      name: formBuilder.control(
-		customer.name, Validators.required),
+      name: formBuilder.control(customer.name, Validators.required),
       firstname: formBuilder.control(customer.firstname),
-      numberOfOrders: formBuilder.control(
-		customer.numberOfOrders, Validators.min(0)),
+      numberOfOrders: formBuilder.control(customer.numberOfOrders, Validators.min(0))
     });
   }
 }
 ```
+
 $ ng generate component customers/customer-form
 
-$ src/customers/customer-form/customer-form.component.ts
+$ src/app/customers/customer-form/customer-form.component.ts
 
 ```javascript
 import { Component, OnInit } from '@angular/core';
@@ -59,8 +59,8 @@ export class CustomerFormComponent implements OnInit {
 
     this.snackBar.open(
       `Customer ${data.name} saved successfully.`,
-	 '',
-	 { duration: 2000 }
+	    '',
+	    { duration: 2000 }
     );
   }
 
@@ -68,7 +68,7 @@ export class CustomerFormComponent implements OnInit {
 }
 ```
 
-$ src/customers/customer-form/customer-form.component.html
+$ src/app/customers/customer-form/customer-form.component.html
 
 ```html
 <h1>Edit customer</h1>
@@ -125,7 +125,7 @@ $ src/customers/customer-form/customer-form.component.html
 <pre>form.getRawValue() = <br/>{{ form.getRawValue() | json }}</pre>
 ```
 
-$ src/customers/customers.module.ts
+$ src/app/customers/customers.module.ts
 
 ```javascript
 import {
