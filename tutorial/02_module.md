@@ -9,7 +9,7 @@
 
 ## src/app/app.module.ts
 
-```javascript
+```ts
 import { FormsModule } from '@angular/forms';
 
 @NgModule({

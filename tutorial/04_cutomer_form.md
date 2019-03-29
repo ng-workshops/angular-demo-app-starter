@@ -1,19 +1,19 @@
 # Customer form
 
-$ ng generate class customers/customer
+> ng generate class customers/customer
 
-$ src/app/customers/customer.ts
+## src/app/customers/customer.ts
 
-```javascript
+```ts
 import { FormBuilder, Validators } from '@angular/forms';
 
 export class Customer {
   id: number;
   name: string;
-  numberOfOrders = 0;
 
   firstname?: string;
   hobbies?: string[];
+  numberOfOrders?: number;
 
   static toFormGroup(customer = new Customer()) {
     const formBuilder = new FormBuilder();
@@ -22,17 +22,40 @@ export class Customer {
       id: formBuilder.control(customer.id),
       name: formBuilder.control(customer.name, Validators.required),
       firstname: formBuilder.control(customer.firstname),
-      numberOfOrders: formBuilder.control(customer.numberOfOrders, Validators.min(0))
+      numberOfOrders: formBuilder.control(
+        customer.numberOfOrders || 0,
+        Validators.min(0)
+      )
     });
   }
 }
 ```
 
-$ ng generate component customers/customer-form
+> ng generate component customers/customer-form
 
-$ src/app/customers/customer-form/customer-form.component.ts
+## src/app/app.component.html
 
-```javascript
+```html
+<app-customer-form></app-customer-form>
+```
+
+## src/app/customers/customers.module.ts
+
+```ts
+@NgModule({
+  declarations: [
+    CustomerDetailsComponent,
+    CustomerComponent,
+    CustomerFormComponent
+  ],
+  exports: [CustomerComponent, CustomerFormComponent],
+  imports: [CommonModule, MatButtonModule, MatIconModule]
+})
+```
+
+## src/app/customers/customer-form/customer-form.component.ts
+
+```ts
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { FormGroup } from '@angular/forms';
@@ -46,7 +69,7 @@ import { Customer } from '../customer';
 export class CustomerFormComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private snackBar: MatSnackBar) { }
+  constructor(private snackBar: MatSnackBar) {}
 
   ngOnInit() {
     this.form = Customer.toFormGroup();
@@ -55,20 +78,18 @@ export class CustomerFormComponent implements OnInit {
   submit() {
     const data = this.form.getRawValue();
 
-    console.log('New Customer: ', data);
+    console.table(data);
 
-    this.snackBar.open(
-      `Customer ${data.name} saved successfully.`,
-	    '',
-	    { duration: 2000 }
-    );
+    this.snackBar.open(`Customer ${data.name} saved successfully.`, '', {
+      duration: 2000
+    });
   }
 
-  cancel() { }
+  cancel() {}
 }
 ```
 
-$ src/app/customers/customer-form/customer-form.component.html
+## src/app/customers/customer-form/customer-form.component.html
 
 ```html
 <h1>Edit customer</h1>
@@ -76,11 +97,7 @@ $ src/app/customers/customer-form/customer-form.component.html
 <form novalidate [formGroup]="form" (ngSubmit)="submit()">
   <div class="form-row">
     <mat-form-field>
-      <input
-        type="text"
-        matInput
-        placeholder="Name"
-        formControlName="name" />
+      <input type="text" matInput placeholder="Name" formControlName="name" />
       <mat-error *ngIf="form.get('name').hasError('required')">
         REQUIRED
       </mat-error>
@@ -93,7 +110,8 @@ $ src/app/customers/customer-form/customer-form.component.html
         type="text"
         matInput
         placeholder="Firstname"
-        formControlName="firstname" />
+        formControlName="firstname"
+      />
     </mat-form-field>
   </div>
 
@@ -103,7 +121,8 @@ $ src/app/customers/customer-form/customer-form.component.html
         type="number"
         matInput
         placeholder="Number of orders"
-        formControlName="numberOfOrders" />
+        formControlName="numberOfOrders"
+      />
     </mat-form-field>
   </div>
 
@@ -112,48 +131,37 @@ $ src/app/customers/customer-form/customer-form.component.html
       mat-raised-button
       color="primary"
       type="submit"
-      [disabled]="this.form.invalid">Save
+      [disabled]="this.form.invalid"
+    >
+      Save
     </button>
-    <button
-      mat-raised-button
-      type="button"
-      (click)="cancel()">Cancel
-    </button>
+    <button mat-raised-button type="button" (click)="cancel()">Cancel</button>
   </div>
 </form>
 
 <pre>form.getRawValue() = <br/>{{ form.getRawValue() | json }}</pre>
 ```
 
-$ src/app/customers/customers.module.ts
+## src/app/customers/customers.module.ts
 
-```javascript
-import {
-  MatButtonModule,
-  MatCheckboxModule,
-  MatRadioModule,
-  MatSnackBarModule,
-  MatInputModule,
-  MatIconModule
-} from '@angular/material';
-
-import {
-  CustomerFormComponent
-} from './customer-form/customer-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import {
-  BrowserAnimationsModule
-} from '@angular/platform-browser/animations';
-
-...
-
-imports: [
+```ts
+@NgModule({
+  declarations: [
+    CustomerDetailsComponent,
+    CustomerComponent,
+    CustomerFormComponent
+  ],
+  exports: [CustomerComponent, CustomerFormComponent],
+  imports: [
     CommonModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatButtonModule,
+    MatIconModule,
     MatSnackBarModule,
     MatInputModule,
-    MatIconModule
+    MatFormFieldModule
   ]
+})
+export class CustomersModule {}
 ```

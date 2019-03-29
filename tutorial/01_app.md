@@ -2,7 +2,7 @@
 
 ## src/app/app.component.ts
 
-```javascript
+```ts
 import { Component } from '@angular/core';
 
 @Component({

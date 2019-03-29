@@ -1,19 +1,8 @@
 # RxJS
-## Add edit function
-
-$ src/app/customers/customer/customer.component.ts
-
-```javascript
-constructor(private router: Router) { }
-
-edit() {
-  this.router.navigate(['customers', this.customer.id]);
-}
-```
 
 ## Add footer
 
-$ src/app/customers/customer/customer.component.html
+## src/app/customers/customer/customer.component.html
 
 ```html
 ...
@@ -25,11 +14,39 @@ $ src/app/customers/customer/customer.component.html
 </div>
 ```
 
+## Add edit function
+
+## src/app/customers/customer/customer.component.ts
+
+```ts
+...
+
+constructor(private router: Router) { }
+
+edit() {
+  this.router.navigate(['customers', this.customer.id]);
+}
+```
+
+## Add getById()
+
+## src/app/customers/customer.service.ts
+
+```ts
+import { of, Observable } from 'rxjs';
+
+...
+
+getById(id: string): Observable<Customer> {
+  return of(this.getAll().find(c => c.id.toString() === id));
+}
+```
+
 ## Extend ngOnInit()
 
-$ src/app/customers/customer-form/customer-form.component.ts
+## src/app/customers/customer-form/customer-form.component.ts
 
-```javascript
+```ts
 ...
 
 constructor(
@@ -56,20 +73,4 @@ constructor(
 cancel() {
   this.router.navigate(['customers']);
 }
-```
-
-## Add getById()
-
-$ src/app/customers/customer.service.ts
-
-```javascript
-import { of } from 'rxjs';
-
-...
-
-getById(id: string): any {
-  return of(this.getAll().find(c => c.id.toString() === id));
-}
-
-...
 ```

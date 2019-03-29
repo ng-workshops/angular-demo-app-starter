@@ -1,25 +1,45 @@
 # Http
+
 ## Add HttpClientModule to imports
 
-$ src/app/customers/customer.module.ts
+## src/app/customers/customer.module.ts
+
+```ts
+...
+
+imports: [
+    CommonModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    CustomersRoutingModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatIconModule,
+    MatSnackBarModule,
+    MatInputModule,
+    MatFormFieldModule
+  ]
+
+  ...
+```
 
 ## Add HttpClient
 
-$ src/app/customers/customer.service.ts
+## src/app/customers/customer.service.ts
 
-```javascript
+```ts
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Customer } from './customer';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class CustomerService {
   private readonly endpoint = environment.endpoints.customers;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   getById(id: string) {
     return this.httpClient.get<Customer>(`${this.endpoint}/${id}`);
@@ -31,7 +51,7 @@ export class CustomerService {
       ? { params: new HttpParams().set('search', searchTerm) }
       : {};
 
-    return this.httpClient.get<Array<Customer>>(this.endpoint, httpOptions);
+    return this.httpClient.get<Customer[]>(this.endpoint, httpOptions);
   }
 
   create(customer: Customer) {
@@ -50,9 +70,9 @@ export class CustomerService {
 
 # Update submit logic to use the customer service
 
-$ src/app/customers/cutomer-form/customer-form.component.ts
+## src/app/customers/cutomer-form/customer-form.component.ts
 
-```javascript
+```ts
 ...
 
 submit() {
@@ -62,7 +82,7 @@ submit() {
     : this.customerService.create.bind(this.customerService);
 
     save$(data)
-      .subscribe(_ => {
+      .subscribe(() => {
         this.snackBar.open(
 		      `Customer ${data.name} saved successfully.`,
           '',
@@ -76,7 +96,7 @@ submit() {
 
 ## Add search field
 
-$ src/app/customers/customer-list/customer-list.component.html
+## src/app/customers/customer-list/customer-list.component.html
 
 ```html
 <div class="customers-search">
@@ -91,9 +111,10 @@ $ src/app/customers/customer-list/customer-list.component.html
 
 <div class="customer">
   <app-customer
-    *ngFor="let customer of customers$ | async"
+    *ngFor="let customer of (customers$ | async)"
     [customer]="customer"
-    (deleteCustomer)="deleteCustomer($event)">
+    (deleteCustomer)="deleteCustomer($event)"
+  >
     <app-customer-details></app-customer-details>
   </app-customer>
 </div>
@@ -101,14 +122,21 @@ $ src/app/customers/customer-list/customer-list.component.html
 
 ## Add rxjs magic
 
-$ src/app/customers/customer-list/customer-list.component.ts
+## src/app/customers/customer-list/customer-list.component.ts
 
-```javascript
+```ts
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { Observable, Subject, merge } from 'rxjs';
-import { debounceTime, distinctUntilChanged, switchMap, startWith, withLatestFrom, map } from 'rxjs/operators';
+import {
+  debounceTime,
+  distinctUntilChanged,
+  switchMap,
+  startWith,
+  withLatestFrom,
+  map
+} from 'rxjs/operators';
 import { Customer } from '../customer.model';
 import { CustomerService } from '../customer.service';
 
@@ -127,7 +155,7 @@ export class CustomerListComponent implements OnInit {
   constructor(
     private router: Router,
     private customerService: CustomerService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.search$ = this.searchTerm.valueChanges.pipe(
@@ -136,13 +164,12 @@ export class CustomerListComponent implements OnInit {
       startWith('')
     );
 
-    this.customers$ = merge(this.search$, this.reload$)
-      .pipe(
-        withLatestFrom(this.search$),
-        map(value => value[1]),
-        switchMap(value => {
-          return this.customerService.getAll(value);
-        })
+    this.customers$ = merge(this.search$, this.reload$).pipe(
+      withLatestFrom(this.search$),
+      map(value => value[1]),
+      switchMap(value => {
+        return this.customerService.getAll(value);
+      })
     );
   }
 
@@ -151,17 +178,16 @@ export class CustomerListComponent implements OnInit {
   }
 
   deleteCustomer(id: number) {
-    this.customerService.delete(id)
-	    .subscribe(_ => this.reload$.next());
+    this.customerService.delete(id).subscribe(() => this.reload$.next());
   }
 }
 ```
 
 ## Add delete method and Output
 
-$ src/app/customers/customer/customer.component.ts
+## src/app/customers/customer/customer.component.ts
 
-```javascript
+```ts
 ...
 
 @Output() deleteCustomer = new EventEmitter<number>();
@@ -173,7 +199,7 @@ delete(id: number) {
 
 ## Add delete button in footer
 
-$ src/app/customers/customer/customer.component.html
+## src/app/customers/customer/customer.component.html
 
 ```html
 ...

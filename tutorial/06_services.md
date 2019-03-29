@@ -1,21 +1,20 @@
 # Services
 
-$ ng generate service customers/customer
+> ng generate service customers/customer
 
-$ src/app/customers/customer.service.ts
+## src/app/customers/customer.service.ts
 
-```javascript
+```ts
 import { Injectable } from '@angular/core';
 import { Customer } from './customer';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class CustomerService {
+  constructor() {}
 
-  constructor() { }
-
-  getAll() {
+  getAll(): Customer[] {
     return [
       {
         id: 1,
@@ -28,11 +27,11 @@ export class CustomerService {
 }
 ```
 
-$ ng generate component customers/customer-list
+> ng generate component customers/customer-list
 
-$ src/app/customers/customer-list/customer-list.component.ts
+## src/app/customers/customer-list/customer-list.component.ts
 
-```javascript
+```ts
 import { Component, OnInit } from '@angular/core';
 import { Customer } from '../customer';
 import { CustomerService } from '../customer.service';
@@ -43,9 +42,9 @@ import { CustomerService } from '../customer.service';
   styleUrls: ['./customer-list.component.scss']
 })
 export class CustomerListComponent implements OnInit {
-  customers;
+  customers: Customer[];
 
-  constructor(private customerService: CustomerService) { }
+  constructor(private customerService: CustomerService) {}
 
   ngOnInit() {
     this.customers = this.customerService.getAll();
@@ -53,21 +52,19 @@ export class CustomerListComponent implements OnInit {
 }
 ```
 
-$ src/app/customers/customer-list/customer-list.component.html
+## src/app/customers/customer-list/customer-list.component.html
 
 ```html
 <div class="customer">
-  <app-customer
-    *ngFor="let customer of customers"
-    [customer]="customer">
+  <app-customer *ngFor="let customer of customers" [customer]="customer">
     <app-customer-details></app-customer-details>
   </app-customer>
 </div>
 ```
 
-$ src/app/customers/customers-routing.module.ts
+## src/app/customers/customers-routing.module.ts
 
-```javascript
+```ts
 ...
 
 const routes: Routes = [
