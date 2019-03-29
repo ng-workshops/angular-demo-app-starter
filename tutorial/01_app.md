@@ -1,6 +1,6 @@
 # App Component
 
-$ src/app/app.component.ts
+## src/app/app.component.ts
 
 ```javascript
 import { Component } from '@angular/core';
@@ -19,16 +19,19 @@ export class AppComponent {
     firstname: 'Homer',
     hobbies: ['eat', 'sleep', 'beer']
   };
+
+  callMe(phone) {
+    alert(`Please call this number: ${phone}`);
+  }
 }
 ```
 
-$ src/app/app.component.html
+## src/app/app.component.html
 
 ```html
 <h1>Welcome to app!</h1>
 
-<p>I am "{{customer.name | uppercase}},
-   {{ customer.firstname }}"</p>
+<p>I am "{{customer.name | uppercase}}, {{ customer.firstname }}"</p>
 
 <span>These are my hobbies: </span>
 <span *ngFor="let h of customer?.hobbies">{{h}} </span>
@@ -36,7 +39,7 @@ $ src/app/app.component.html
 <p>I am god in math => 1 + 2 = {{ 1 + 2 }}</p>
 
 <button (click)="showDetails = !showDetails">
-    {{ showDetails ? 'Hide' : 'Show'}} the secret message
+  {{ showDetails ? 'Hide' : 'Show'}} the secret message
 </button>
 <span [hidden]="!showDetails">
   My phone number is 123 456 7890
@@ -48,7 +51,8 @@ $ src/app/app.component.html
 <button
   [class.app-disabled]="!showDetails"
   [disabled]="!showDetails"
-  (click)="callMe(phone.value)">
+  (click)="callMe(phone.value)"
+>
   Call me
 </button>
 
