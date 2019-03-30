@@ -59,4 +59,53 @@ describe('CustomerListComponent', () => {
     expect(customerServiceMock.getAll).toHaveBeenCalledWith('');
   });
 });
+
+describe('CustomerListComponent without TestBed', () => {
+  let component: CustomerListComponent;
+  let routerMock: any;
+  let customerServiceMock: any;
+
+  beforeEach(() => {
+    routerMock = {
+      navigateByUrl: jest.fn()
+    };
+
+    customerServiceMock = {
+      getAll: jest.fn().mockReturnValue(of([])),
+      delete: jest.fn().mockReturnValue(of({}))
+    };
+
+    component = new CustomerListComponent(routerMock, customerServiceMock);
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  describe('GIVEN the component is initialized', () => {
+    let customerSubscription: Subscription;
+
+    beforeEach(() => {
+      component.ngOnInit();
+      customerSubscription = component.customers$.subscribe();
+    });
+
+    afterEach(() => {
+      customerSubscription.unsubscribe();
+    });
+
+    it('should navigate to the customer form when the add button is clicked', () => {
+      component.addNewCustomer();
+
+      expect(routerMock.navigateByUrl).toHaveBeenCalledWith('/customers/new');
+    });
+
+    fit('should call the delete function and reload the data when the delete button is clicked', () => {
+      component.deleteCustomer(1);
+
+      expect(customerServiceMock.delete).toHaveBeenCalledWith(1);
+      expect(customerServiceMock.getAll).toHaveBeenCalledWith('');
+    });
+  });
+});
 ```
