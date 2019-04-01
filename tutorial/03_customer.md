@@ -1,5 +1,7 @@
 # Customer
 
+> npm install @angular\cli -g
+
 > ng generate module customers --module app
 
 > ng generate component customers/customer
