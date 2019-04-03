@@ -1,6 +1,6 @@
 # Customer
 
-> npm install @angular\cli -g
+> npm install @angular/cli -g
 
 > ng generate module customers --module app
 
