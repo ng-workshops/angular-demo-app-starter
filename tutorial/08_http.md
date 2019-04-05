@@ -137,7 +137,7 @@ import {
   withLatestFrom,
   map
 } from 'rxjs/operators';
-import { Customer } from '../customer.model';
+import { Customer } from '../customer';
 import { CustomerService } from '../customer.service';
 
 @Component({
