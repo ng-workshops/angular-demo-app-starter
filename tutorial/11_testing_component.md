@@ -100,7 +100,7 @@ describe('CustomerListComponent without TestBed', () => {
       expect(routerMock.navigateByUrl).toHaveBeenCalledWith('/customers/new');
     });
 
-    fit('should call the delete function and reload the data when the delete button is clicked', () => {
+    it('should call the delete function and reload the data when the delete button is clicked', () => {
       component.deleteCustomer(1);
 
       expect(customerServiceMock.delete).toHaveBeenCalledWith(1);
