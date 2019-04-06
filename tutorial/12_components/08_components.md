@@ -16,7 +16,7 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 
 @Component({
-  selector: 'info-item',
+  selector: 'app-info-item',
   templateUrl: './info-item.component.html',
   styleUrls: ['./info-item.component.scss']
 })
