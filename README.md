@@ -1,6 +1,6 @@
 # Angular Demo App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.x.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.x.
 
 ## Development server
 
@@ -32,12 +32,12 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Useful Resources for more insights into Angular and some related frameworks/libs
 
-### Angular CLI wiki
+### Angular CLI documentation
 
 Dokumentation of the all the Angular CLI commands and addional information of common use cases, like using some 3rd party lib within the app or use a proxy during the development to access a backend server.
 
-* [Wiki](https://github.com/angular/angular-cli/wiki)
-* [Stories](https://github.com/angular/angular-cli/wiki/stories)
+- [Docs](https://angular.io/cli)
+- [Stories](https://github.com/angular/angular-cli/wiki/stories)
 
 ### Angular styleguide
 
@@ -59,17 +59,17 @@ https://www.learnrxjs.io
 
 One of the best Editors to work with JavaScript/TypeScript and Angular apps. Has a great community and there are endless plugins for each use case.
 
-* [VS Code](https://code.visualstudio.com)
-* [Plugin Pack for Angular](https://marketplace.visualstudio.com/items?itemName=johnpapa.angular-essentials)
+- [VS Code](https://code.visualstudio.com)
+- [Plugin Pack for Angular](https://marketplace.visualstudio.com/items?itemName=johnpapa.angular-essentials)
 
 ### Prettier
 
 Opinionated code styling tool. Works for many languages and will help you to no longer discuss about code styling rules in your team.
 
-* [Official Website](https://prettier.io)
-* [Plugin for tslint](https://github.com/alexjoverm/tslint-config-prettier)
-* [Module to do actions on all changed files](https://github.com/okonet/lint-staged)
-* [Simple Setup in combination with ESLint](https://github.com/lipis/prettier-setup/blob/master/README.md)
+- [Official Website](https://prettier.io)
+- [Plugin for tslint](https://github.com/alexjoverm/tslint-config-prettier)
+- [Module to do actions on all changed files](https://github.com/okonet/lint-staged)
+- [Simple Setup in combination with ESLint](https://github.com/lipis/prettier-setup/blob/master/README.md)
 
 ### Jest
 
@@ -85,23 +85,23 @@ https://nrwl.io/nx
 
 ### Tools
 
-* [Augury](https://augury.angular.io) Chrome Extension for debugging and profiling Angular apps
-* [ngrev](https://github.com/mgechev/ngrev) Tool will generate a graphical representation of the component structure of your Angular app
+- [Augury](https://augury.angular.io) Chrome Extension for debugging and profiling Angular apps
+- [ngrev](https://github.com/mgechev/ngrev) Tool will generate a graphical representation of the component structure of your Angular app
 
 ### Authentication
 
-* https://angular.io/guide/http#set-default-headers
-* https://blog.angular-university.io/angular-jwt-authentication/
-* https://blogs.msdn.microsoft.com/premier_developer/2018/03/07/angular-how-to-implement-role-based-security/
+- https://angular.io/guide/http#set-default-headers
+- https://blog.angular-university.io/angular-jwt-authentication/
+- https://blogs.msdn.microsoft.com/premier_developer/2018/03/07/angular-how-to-implement-role-based-security/
 
 ### Recommended high quality blogs
 
-* https://blog.angular.io
-* https://blog.thoughtram.io
-* https://blog.angularindepth.com
-* https://blog.nrwl.io
-* https://alligator.io/angular/
-* https://netbasal.com
-* http://www.softwarearchitekt.at/default.aspx
-* https://juristr.com/blog/
-* https://www.bennadel.com/index.cfm
+- https://blog.angular.io
+- https://blog.thoughtram.io
+- https://blog.angularindepth.com
+- https://blog.nrwl.io
+- https://alligator.io/angular/
+- https://netbasal.com
+- http://www.softwarearchitekt.at/default.aspx
+- https://juristr.com/blog/
+- https://www.bennadel.com/index.cfm
