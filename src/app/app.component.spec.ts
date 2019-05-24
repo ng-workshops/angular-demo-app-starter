@@ -8,12 +8,8 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [NoopAnimationsModule],
-      declarations: [
-        AppComponent
-      ],
-      providers: [
-        { provide: HttpClient, useValue: {} }
-      ],
+      declarations: [AppComponent],
+      providers: [{ provide: HttpClient, useValue: {} }],
       schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   }));
