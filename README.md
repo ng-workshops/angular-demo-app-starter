@@ -87,6 +87,7 @@ https://nrwl.io/nx
 
 - [Augury](https://augury.angular.io) Chrome Extension for debugging and profiling Angular apps
 - [ngrev](https://github.com/mgechev/ngrev) Tool will generate a graphical representation of the component structure of your Angular app
+- [Angular Console](https://angularconsole.com) The UI for the angular-cli
 
 ### Authentication
 
