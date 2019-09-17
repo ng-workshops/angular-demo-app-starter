@@ -3,6 +3,7 @@
     "angular.ng-template",
     "esbenp.prettier-vscode",
     "ms-vscode.vscode-typescript-tslint-plugin",
-    "andys8.jest-snippets"
+    "andys8.jest-snippets",
+    "johnpapa.angular2"
   ]
 }

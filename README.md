@@ -1,6 +1,6 @@
 # Angular Demo App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.x.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.x.
 
 ## Development server
 
@@ -43,7 +43,9 @@ Dokumentation of the all the Angular CLI commands and addional information of co
 
 Offical code styleguide from the Angular team.
 
-https://angular.io/guide/styleguide
+- https://angular.io/guide/styleguide
+- https://angular-checklist.io/projects
+- [Angular Update Guide](https://update.angular.io)
 
 ### Create you own Angular lib
 
@@ -53,7 +55,9 @@ https://github.com/angular/angular-cli/wiki/stories-create-library
 
 ### RxJS
 
-https://www.learnrxjs.io
+- https://www.learnrxjs.io
+- [When to unsubscribe in Angular](https://netbasal.com/when-to-unsubscribe-in-angular-d61c6b21bad3)
+- [Rxjs marbles](https://rxmarbles.com/) Marble diagrams for rxjs operators
 
 ### Vs Code
 
@@ -61,6 +65,8 @@ One of the best Editors to work with JavaScript/TypeScript and Angular apps. Has
 
 - [VS Code](https://code.visualstudio.com)
 - [Plugin Pack for Angular](https://marketplace.visualstudio.com/items?itemName=johnpapa.angular-essentials)
+- [Jest Plugin](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest)
+- [Karma Plugin](https://marketplace.visualstudio.com/items?itemName=raagh.angular-karma-test-explorer)
 
 ### Prettier
 
@@ -75,7 +81,8 @@ Opinionated code styling tool. Works for many languages and will help you to no 
 
 Blog article how you can use the [Jest](https://facebook.github.io/jest/) testing framework with Angular. Replaces the karma runner and is much faster. Also includes some nice features like [Snapshot Testing](https://facebook.github.io/jest/docs/en/snapshot-testing.html).
 
-https://www.xfive.co/blog/testing-angular-faster-jest/
+- https://www.xfive.co/blog/testing-angular-faster-jest/
+- https://github.com/briebug/jest-schematic Schematic that adds all the code necessary for jest and removes karma from the project
 
 ### Nrwl Extensions for Angular
 
@@ -83,11 +90,25 @@ A toolkit based on the Angular cli to support the writing of large scale enterpr
 
 https://nrwl.io/nx
 
+### Internationalization
+
+- [Angular i18n](https://angular.io/guide/i18n) The build in solution for internationalization from Angular
+- [NGX-Translate](http://www.ngx-translate.com) A more dynamic approach for internationalization from the community
+- [ngx-translate-extract](https://github.com/biesbjerg/ngx-translate-extract) Extracts localizations keys from the app and saves them in json files for each language
+- [POEditor](https://poeditor.com) Online localization management platform
+- [BabelEdit](https://www.codeandweb.com/babeledit) Translation editor spezialized for web apps
+
 ### Tools
 
 - [Augury](https://augury.angular.io) Chrome Extension for debugging and profiling Angular apps
 - [ngrev](https://github.com/mgechev/ngrev) Tool will generate a graphical representation of the component structure of your Angular app
 - [Angular Console](https://angularconsole.com) The UI for the angular-cli
+
+### Styling
+
+- [Icons](https://icomoon.io/#home) Icon sets and an app to transform svg icons into a font
+- [Refactoring UI](https://refactoringui.com) Design Tips and an ebook for with guide to to refactor existing designs
+- [Animate.css](https://daneden.github.io/animate.css/) Collection of css animations
 
 ### Authentication
 
@@ -95,8 +116,24 @@ https://nrwl.io/nx
 - https://blog.angular-university.io/angular-jwt-authentication/
 - https://blogs.msdn.microsoft.com/premier_developer/2018/03/07/angular-how-to-implement-role-based-security/
 
+### Recursion of Components
+
+- https://netbasal.com/recursion-in-angular-components-1cd636269b12
+- https://www.bennadel.com/blog/3513-playing-with-recursive-components-in-angular-6-1-10.htm
+
+### NPM
+
+- [npm audit](https://docs.npmjs.com/cli/audit) Build in security check for node modules
+- [snyk](https://snyk.io) Dependency vulnerabilities management
+- 7 Tools to Scan Node.js Application for Security Vulnerability https://geekflare.com/nodejs-security-scanner/
+- [license-checker](https://github.com/davglass/license-checker) List licenses of all node modules in the project
+- [npm-check-updates](https://github.com/tjunnone/npm-check-updates) Check all dependencies for updates
+
 ### Recommended high quality blogs
 
+- https://angular.de
+- https://angular.de/slack (Deutscher Angular Slack channel)
+- https://egghead.io/
 - https://blog.angular.io
 - https://blog.thoughtram.io
 - https://blog.angularindepth.com
@@ -106,3 +143,11 @@ https://nrwl.io/nx
 - http://www.softwarearchitekt.at/default.aspx
 - https://juristr.com/blog/
 - https://www.bennadel.com/index.cfm
+
+### Youtube Channels of Angular conferences
+
+- [ng-conf](https://www.youtube.com/user/ngconfvideos/videos)
+- [ng-europe](https://www.youtube.com/channel/UCEGUP3TJJfMsEM_1y8iviSQ/videos)
+- [AngularConnect](https://www.youtube.com/channel/UCzrskTiT_ObAk3xBkVxMz5g/videos)
+- [ng-be](https://www.youtube.com/channel/UCnMfZM2S3QgbFvOyet5PMmQ/videos)
+- [ngVikings](https://www.youtube.com/channel/UCImlZXX470Pl8N_CUy3E2Zw/videos)
