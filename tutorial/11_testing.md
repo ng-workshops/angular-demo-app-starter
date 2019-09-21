@@ -1,6 +1,6 @@
 # Testing - Fix existing tests
 
-## src/app/app.component.ts
+## src/app/app.component.spec.ts
 
 ```ts
 ...

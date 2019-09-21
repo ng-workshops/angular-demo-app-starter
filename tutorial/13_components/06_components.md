@@ -37,7 +37,7 @@ export class HomeComponent {
   name = 'START_';
   reply = '';
 
-  @ViewChild('child')
+  @ViewChild('child', { static: true })
   private child: InfoBoxComponent;
 
   changeChild() {

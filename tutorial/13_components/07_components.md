@@ -68,7 +68,9 @@ export class InfoBoxComponent implements OnInit, OnChanges, OnDestroy {
   constructor(private messageService: MessageService) {}
 
   ngOnInit() {
-    this.messageService.listener$.subscribe(msg => (this.message = msg));
+    this.subscription = this.messageService.listener$.subscribe(
+      msg => (this.message = msg)
+    );
   }
 
   ngOnChanges(changes: { [propKey: string]: SimpleChange }) {

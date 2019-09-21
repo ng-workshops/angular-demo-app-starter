@@ -1,6 +1,6 @@
 # 15 Dynamic Global Modal
 
-> ng generate service shared/modal/host/host-element --module shared
+> ng generate service shared/modal/host/host-element
 
 ## shared/modal/host/host-element.service.ts
 
@@ -12,7 +12,7 @@ Injectable({
   providedIn: 'root'
 });
 export class HostElementService {
-  private _hostElement = new ReplaySubject<ViewContainerRef>();
+  private _hostElement = new ReplaySubject<ViewContainerRef>(1);
   hostElement$ = this._hostElement.asObservable();
 
   setHost(hostElement: ViewContainerRef): void {

@@ -69,8 +69,8 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
 
 const routes: Routes = [
   { path: 'customers', component: CustomerListComponent },
-  { path: 'customers/new', component: CustomerFormComponent },
-  { path: 'customers/:id', component: CustomerFormComponent }
+  { path: 'customers/:id', component: CustomerFormComponent },
+  { path: 'customers/new', component: CustomerFormComponent }
 ];
 
 ...

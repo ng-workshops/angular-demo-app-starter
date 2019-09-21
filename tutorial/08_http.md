@@ -115,7 +115,6 @@ submit() {
     [customer]="customer"
     (deleteCustomer)="deleteCustomer($event)"
   >
-    <app-customer-details></app-customer-details>
   </app-customer>
 </div>
 ```
